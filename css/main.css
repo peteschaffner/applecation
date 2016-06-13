@@ -34,54 +34,66 @@ nav a.selected {
 
 .nav-icon {
   position: relative;
+  z-index: -1; /* Keep's animations from firing multiple times in Safari  */
   width: 48px;
   height: 32px;
   margin-bottom: 5px;
 }
 
 nav a[href="/"] .nav-icon {
-  background-image: url(/img/home.svg);
-}
-
-nav a[href="/"]:hover .nav-icon,
-nav a[href="/"].selected .nav-icon {
-  background-image: url(/img/home-selected.svg);
+  background-image: url(/img/about-sprite.svg);
 }
 
 nav a[href*="work"] .nav-icon {
-  background-image: url(/img/work.svg);
+  background-image: url(/img/work-sprite.svg);
 }
 
-nav a[href*="work"].selected .nav-icon {
-  background-image: url(/img/work-selected.svg);
+nav a[href*="work"] .nav-icon > .nav-icon {
+  position: absolute;
+  visibility: hidden;
+}
+
+#work-wrench {
+  background-position: 0 -64px;
+}
+
+#work-pencil {
+  background-position: 0 -32px;
+}
+
+nav a[href*="work"]:hover > .nav-icon,
+nav a[href*="work"].selected > .nav-icon {
+  visibility: hidden;
+}
+
+nav a[href*="work"]:hover .nav-icon > .nav-icon,
+nav a[href*="work"].selected .nav-icon > .nav-icon {
+  visibility: visible;
 }
 
 nav a[href*="resume"] .nav-icon {
-  background-image: url(/img/resume.svg);
-}
-
-nav a[href*="resume"]:hover .nav-icon,
-nav a[href*="resume"].selected .nav-icon {
-  background-image: url(/img/resume-selected.svg);
+  background-image: url(/img/resume-sprite.svg);
 }
 
 nav a[href*="references"] .nav-icon {
-  background-image: url(/img/references.svg);
-}
-
-nav a[href*="references"]:hover .nav-icon,
-nav a[href*="references"].selected .nav-icon {
-  background-image: url(/img/references-selected.svg);
+  background-image: url(/img/references-sprite.svg);
 }
 
 nav a[href*="contact"] .nav-icon {
-  background-image: url(/img/contact.svg);
+  background-image: url(/img/contact-sprite.svg);
 }
 
+nav a[href="/"]:hover .nav-icon,
+nav a[href="/"].selected .nav-icon,
+nav a[href*="resume"]:hover .nav-icon,
+nav a[href*="resume"].selected .nav-icon,
+nav a[href*="references"]:hover .nav-icon,
+nav a[href*="references"].selected .nav-icon,
 nav a[href*="contact"]:hover .nav-icon {
-  background-image: url(/img/contact-selected.svg);
+  background-position: 0 -32px;
 }
 
-nav a.selected .nav-icon {
+
+nav a.selected > .nav-icon {
   transform: scale(1.25);
 }
