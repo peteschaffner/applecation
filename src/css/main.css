@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+nav ul {
+  margin: auto;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-around;
+  max-width: 400px;
+  list-style: none;
+}
+
+nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 48px;
+  text-decoration: none;
+  color: black;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+nav a.selected {
+  font-weight: 600;
+}
+
+.nav-icon {
+  position: relative;
+  width: 48px;
+  height: 32px;
+  margin-bottom: 5px;
+}
+
+nav a[href="/"] .nav-icon {
+  background-image: url(/img/home.svg);
+}
+
+nav a[href="/"]:hover .nav-icon,
+nav a[href="/"].selected .nav-icon {
+  background-image: url(/img/home-selected.svg);
+}
+
+nav a[href*="work"] .nav-icon {
+  background-image: url(/img/work.svg);
+}
+
+nav a[href*="work"].selected .nav-icon {
+  background-image: url(/img/work-selected.svg);
+}
+
+nav a[href*="resume"] .nav-icon {
+  background-image: url(/img/resume.svg);
+}
+
+nav a[href*="resume"]:hover .nav-icon,
+nav a[href*="resume"].selected .nav-icon {
+  background-image: url(/img/resume-selected.svg);
+}
+
+nav a[href*="references"] .nav-icon {
+  background-image: url(/img/references.svg);
+}
+
+nav a[href*="references"]:hover .nav-icon,
+nav a[href*="references"].selected .nav-icon {
+  background-image: url(/img/references-selected.svg);
+}
+
+nav a[href*="contact"] .nav-icon {
+  background-image: url(/img/contact.svg);
+}
+
+nav a[href*="contact"]:hover .nav-icon {
+  background-image: url(/img/contact-selected.svg);
+}
+
+nav a.selected .nav-icon {
+  transform: scale(1.25);
+}

@@ -1,0 +1,11 @@
+{{> header }}
+
+  {{{ contents }}}
+
+  <ul>
+    {{#each work}}
+    <li><a href="{{ path }}">{{ title }} - {{ date }}</a></li>
+    {{/each}}
+  </ul>
+
+{{> footer }}

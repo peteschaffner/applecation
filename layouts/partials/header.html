@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li>
+        <a href="/" {{#unless path}}class="selected"{{/unless}}>
+          <div class="nav-icon"></div>
+          <div>About</div>
+        </a>
+      </li>
+      <li>
+        <a href="/work" {{#includes path "work"}}class="selected"{{/includes}}>
+          <div class="nav-icon"></div>
+          <div>Work</div>
+        </a>
+      </li>
+      <li>
+        <a href="/resume" {{#includes path "resume"}}class="selected"{{/includes}}>
+          <div class="nav-icon"></div>
+          <div>Résumé</div>
+        </a>
+      </li>
+      <li>
+        <a href="/references" {{#includes path "references"}}class="selected"{{/includes}}>
+          <div class="nav-icon"></div>
+          <div>References</div>
+        </a>
+      </li>
+      <li>
+        <a href="#contact">
+          <div class="nav-icon"></div>
+          <div>Contact</div>
+        </a>
+      </li>
+    </ul>
+  </nav>
