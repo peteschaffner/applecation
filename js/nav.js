@@ -143,7 +143,11 @@ new Animocon(contactLink, [
     duration : 1000,
     onUpdate: function(progress) {
       var elasticOutProgress = mojs.easing.elastic.out(progress);
-      contactLink.style.transform = 'translateX(' + 20*(1-elasticOutProgress) + '%)';
+      var scale = '';
+      if (contactLink.parentElement.classList.length) {
+        scale = ' scale(1.25)'
+      }
+      contactLink.style.transform = 'translateX(' + 20*(1-elasticOutProgress) + '%)'+ scale;
     }
   })
 ]);
