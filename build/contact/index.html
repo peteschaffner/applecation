@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>{{ title }}</title>
-  <meta name="description" content="{{ description }}">
+  <title>Pete Schaffner</title>
+  <meta name="description" content="My work, résumé and references, freshly picked for .">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="/css/normalize.css">
@@ -13,13 +13,13 @@
   <nav>
     <ul>
       <li>
-        <a href="/" {{#unless path}}class="selected"{{/unless}}>
+        <a href="/" >
           <div class="nav-icon"></div>
           <div>About</div>
         </a>
       </li>
       <li>
-        <a href="/work" {{#includes path "work"}}class="selected"{{/includes}}>
+        <a href="/work" >
           <div class="nav-icon">
             <div class="nav-icon work-wrench" id="work-wrench"></div>
             <div class="nav-icon work-pencil" id="work-pencil"></div>
@@ -28,22 +28,38 @@
         </a>
       </li>
       <li>
-        <a href="/resume" {{#includes path "resume"}}class="selected"{{/includes}}>
+        <a href="/resume" >
           <div class="nav-icon"></div>
           <div>Résumé</div>
         </a>
       </li>
       <li>
-        <a href="/references" {{#includes path "references"}}class="selected"{{/includes}}>
+        <a href="/references" >
           <div class="nav-icon"></div>
           <div>References</div>
         </a>
       </li>
       <li>
-        <a href="/contact" {{#includes path "contact"}}class="selected"{{/includes}}>
+        <a href="/contact" class="selected">
           <div class="nav-icon"></div>
           <div>Contact</div>
         </a>
       </li>
     </ul>
   </nav>
+
+  
+
+  <ul>
+    <li><a href="work/icons">Icons - 2014</a></li>
+    <li><a href="work/conceited">Conceited - 2013</a></li>
+  </ul>
+
+  <footer>
+
+  </footer>
+
+  <script src="//cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+  <script src="/js/nav.js"></script>
+</body>
+</html>

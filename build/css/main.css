@@ -89,7 +89,8 @@ nav a[href*="resume"]:hover .nav-icon,
 nav a[href*="resume"].selected .nav-icon,
 nav a[href*="references"]:hover .nav-icon,
 nav a[href*="references"].selected .nav-icon,
-nav a[href*="contact"]:hover .nav-icon {
+nav a[href*="contact"]:hover .nav-icon,
+nav a[href*="contact"].selected .nav-icon {
   background-position: 0 -32px;
 }
 
