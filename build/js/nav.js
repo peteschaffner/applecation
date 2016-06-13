@@ -38,13 +38,23 @@ new Animocon(aboutLink, [
 
 // Work
 var workLink = document.querySelector('nav a[href*="work"] .nav-icon');
+var pencil = document.querySelector('#work-pencil');
+var wrench = document.querySelector('#work-wrench');
 new Animocon(workLink, [
-// icon scale animation
+  // rotate pencil
   new mojs.Tween({
-    duration : 8000,
+    duration : 1200,
     easing: mojs.easing.bezier(0.1, 1, 0.3, 1),
     onUpdate: function(progress) {
-      workLink.style.transform = 'rotate(' + progress/4 + 'turn)';
+      pencil.style.transform = 'rotate(' + progress + 'turn)';
+    }
+  }),
+  // rotate wrench
+  new mojs.Tween({
+    duration : 800,
+    easing: mojs.easing.bezier(0.1, 1, 0.3, 1),
+    onUpdate: function(progress) {
+      wrench.style.transform = 'rotate(' + -progress + 'turn)';
     }
   })
 ]);
@@ -64,7 +74,7 @@ new Animocon(referencesLink, [
         referencesLink.style.transform = 'scale(' + elasticOutProgress + ')';
       }
       else {
-        referencesLink.style.transform = 'scale(0)';
+        referencesLink.style.transform = 'scale3d(0,0,1)';
       }
     }
   })

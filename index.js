@@ -24,7 +24,7 @@ var metalsmith = Metalsmith(__dirname);
 metalsmith.metadata(metadata)
   .source('./src')
   .destination('./build')
-  // .clean(false)
+  .clean(false)
   .use(collections({
     work: {
       pattern: 'work/**/*.md',
