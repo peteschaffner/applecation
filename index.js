@@ -14,14 +14,9 @@ Handlebars.registerHelper('includes', function(a, b, opts) {
         return opts.inverse(this);
 });
 
-var metadata = {
-  title: 'Pete Schaffner',
-  description: 'My work, résumé and references, freshly picked for .'
-}
-
 var metalsmith = Metalsmith(__dirname);
 
-metalsmith.metadata(metadata)
+metalsmith
   .source('./src')
   .destination('./build')
   .clean(false)
@@ -40,8 +35,8 @@ metalsmith.metadata(metadata)
   }))
   .use(layouts({
     engine: 'handlebars',
-    default: 'default.html',
-    pattern: '**/*.html',
+    // default: 'default.html',
+    // pattern: '*|)}>#*.html',
     partials: {
       header: 'partials/header',
       footer: 'partials/footer'
@@ -50,6 +45,7 @@ metalsmith.metadata(metadata)
   .use(watch({
     paths: {
       '${source}/**/*': true,
+      '${source}/work/*': '**/*.md',
       'layouts/**/*': '**/*.md'
     },
     livereload: true
@@ -59,5 +55,5 @@ metalsmith.metadata(metadata)
     if (err) { throw err; }
     // workaround for duplicate collection data:
     // https://github.com/segmentio/metalsmith-collections/issues/27
-    metalsmith.metadata(metadata);
+    metalsmith.metadata({});
   });

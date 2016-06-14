@@ -1,7 +1,13 @@
-# Hi, I'm Pete
+---
+layout: index.html
+title: About
+---
 
-I'm an American werewolf in Paris. I specialize in interface/interaction
-design, animation, frontend engineering and howling at the moon.
+# Dear Apple,
+
+My name is Pete Schaffner. I'm an American werewolf in Paris. I specialize in
+interface/interaction design, animation, frontend engineering and howling at the
+moon.
 
 I have a penchant for tinkering and believe that to create something great you
 need to understand the materials and processes involved to build it. Thus, I'm

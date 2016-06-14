@@ -46,7 +46,11 @@ new Animocon(workLink, [
     duration : 1200,
     easing: mojs.easing.bezier(0.1, 1, 0.3, 1),
     onUpdate: function(progress) {
-      pencil.style.transform = 'rotate(' + progress + 'turn)';
+      var scale = '';
+      if (workLink.parentElement.classList.length) {
+        scale = ' scale(1.25)'
+      }
+      pencil.style.transform = 'rotate(' + progress + 'turn)' + scale;
     }
   }),
   // rotate wrench
@@ -54,7 +58,11 @@ new Animocon(workLink, [
     duration : 800,
     easing: mojs.easing.bezier(0.1, 1, 0.3, 1),
     onUpdate: function(progress) {
-      wrench.style.transform = 'rotate(' + -progress + 'turn)';
+      var scale = '';
+      if (workLink.parentElement.classList.length) {
+        scale = ' scale(1.25)'
+      }
+      wrench.style.transform = 'rotate(' + -progress + 'turn)' + scale;
     }
   })
 ]);

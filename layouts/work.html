@@ -1,0 +1,30 @@
+{{> header }}
+<main class="work">
+
+    {{#each work}}
+
+    <div class="gallery js-flickity" data-flickity-options='{
+      "imagesLoaded": true,
+      "wrapAround": true,
+      "lazyLoad": true,
+      "cellSelector": ".gallery-cell" }'>
+
+      {{#each images}}
+
+      <div class="gallery-cell">
+        <img class="gallery-cell-image" data-flickity-lazyload="/img/{{ ../path }}/{{ this }}">
+      </div>
+
+      {{/each}}
+
+    </div>
+
+    <h2>{{ title }}</h2>
+    <!-- <p>{{ description }}</p> -->
+
+    {{/each}}
+
+</main>
+
+<script src="/js/flickity.pkgd.min.js"></script>
+{{> footer }}

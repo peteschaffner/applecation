@@ -1,5 +1,5 @@
 ---
+layout: work.html
 title: Work
 ---
 
-All my work
