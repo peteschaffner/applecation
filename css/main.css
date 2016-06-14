@@ -1,11 +1,30 @@
+/* Site */
+
 * {
   box-sizing: border-box;
 }
 
 html {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
-  font-size: 1em;
-  line-height: 1.4;
+  line-height: 1.5;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #f7f7f7;
+}
+
+main {
+  flex: 1;
+  background-color: white;
+}
+
+footer {
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
 }
 
 nav ul {
@@ -13,11 +32,19 @@ nav ul {
   padding: 20px 0;
   display: flex;
   justify-content: space-around;
-  max-width: 400px;
+  max-width: 600px;
   list-style: none;
+  letter-spacing: 1px;
+}
+
+@media only screen and (min-width: 35em) {
+  footer, nav ul {
+    padding: 40px 0;
+  }
 }
 
 nav a {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,27 +75,23 @@ nav a[href*="work"] .nav-icon {
   background-image: url(/img/work-sprite.svg);
 }
 
-nav a[href*="work"] .nav-icon > .nav-icon {
-  position: absolute;
-  visibility: hidden;
-}
-
 #work-wrench {
-  background-position: 0 -64px;
-}
-
-#work-pencil {
   background-position: 0 -32px;
 }
 
-nav a[href*="work"]:hover > .nav-icon,
-nav a[href*="work"].selected > .nav-icon {
-  visibility: hidden;
+#work-pencil {
+  position: absolute;
+  top: 0;
 }
 
-nav a[href*="work"]:hover .nav-icon > .nav-icon,
-nav a[href*="work"].selected .nav-icon > .nav-icon {
-  visibility: visible;
+nav a[href*="work"]:hover #work-wrench,
+nav a[href*="work"].selected #work-wrench {
+  background-position: 0 -96px;
+}
+
+nav a[href*="work"]:hover #work-pencil,
+nav a[href*="work"].selected #work-pencil {
+  background-position: 0 -64px;
 }
 
 nav a[href*="resume"] .nav-icon {
@@ -94,7 +117,124 @@ nav a[href*="contact"].selected .nav-icon {
   background-position: 0 -32px;
 }
 
-
 nav a.selected > .nav-icon {
   transform: scale(1.25);
+}
+
+
+/* About, Resume, References */
+
+.about, .resume, .references {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px 50px;
+  font-size: 20px;
+  /* border-radius: 5px; */
+  font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+}
+
+@media only screen and (min-width: 35em) {
+  .about, .resume, .references {
+    max-width: 600px;
+    padding: 40px 40px 80px;
+  }
+}
+
+.about img {
+  display: block;
+  margin: auto;
+  padding-top: 25px;
+}
+
+.about h1 {
+  text-align: center;
+  font-weight: 400;
+}
+
+
+/* Work */
+
+.work {
+  text-align: center;
+}
+
+.work h2 {
+  margin-bottom: 70px;
+  padding-bottom: 70px;
+  font-weight: normal;
+  text-transform: uppercase;
+  /* border-bottom: 1px solid #eee; */
+  letter-spacing: 3px;
+  font-size: 15px;
+}
+
+/* .gallery:last-child { */
+/*   border: none; */
+/*   margin-bottom: 0; */
+/* } */
+
+.gallery-cell {
+  display: flex;
+  width: 100%;
+  height: 50vh;
+  max-height: 600px;
+  margin-right: 5px;
+}
+
+@media only screen and (min-width: 35em) {
+  .gallery-cell {
+    height: 600px;
+  }
+}
+
+.gallery-cell-image {
+  display: block;
+  max-height: 100%;
+  margin: auto;
+  max-width: 100%;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+/* fade in image when loaded */
+.gallery-cell-image.flickity-lazyloaded,
+.gallery-cell-image.flickity-lazyerror {
+  opacity: 1;
+}
+
+.flickity-page-dots {
+  position: static;
+  margin-top: 10px;
+  bottom: 10px;
+}
+
+.flickity-page-dots .dot {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 1px black;
+  transition: box-shadow 0.3s ease;
+  opacity: 0.25;
+}
+
+.flickity-page-dots .dot.is-selected {
+  box-shadow: inset 0 0 0 5px black;
+  opacity: 0.25;
+}
+
+.flickity-prev-next-button {
+  background: transparent;
+}
+
+.flickity-prev-next-button .arrow {
+    fill: rgba(0,0,0,0.25);
+}
+
+.flickity-prev-next-button:focus {
+  box-shadow: 0 0 0 5px #fe2851;
+}
+
+
+/* Contact */
+
+.contact {
+  background-color: #44DB5E;
 }
