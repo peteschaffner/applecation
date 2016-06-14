@@ -74,16 +74,11 @@ new Animocon(referencesLink, [
     duration : 1200,
     easing: mojs.easing.ease.out,
     onUpdate: function(progress) {
-      if(progress > 0.3) {
-        var elasticOutProgress = mojs.easing.elastic.out(1.43*progress-0.43);
-        if (referencesLink.parentElement.classList.length) {
-          elasticOutProgress += 0.25;
-        }
-        referencesLink.style.transform = 'scale(' + elasticOutProgress + ')';
+      var elasticOutProgress = mojs.easing.elastic.out(progress);
+      if (referencesLink.parentElement.classList.length) {
+        elasticOutProgress += 0.25;
       }
-      else {
-        referencesLink.style.transform = 'scale3d(0,0,1)';
-      }
+      referencesLink.style.transform = 'scale(' + elasticOutProgress + ')';
     }
   })
 ]);
