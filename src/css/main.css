@@ -209,15 +209,18 @@ nav a.selected > .nav-icon {
 }
 
 .flickity-page-dots .dot {
-  background-color: transparent;
-  box-shadow: inset 0 0 0 1px black;
-  transition: box-shadow 0.3s ease;
+  background-color: black;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.1;
+}
+
+.flickity-page-dots .dot.is-selected,
+.flickity-page-dots .dot:hover {
   opacity: 0.25;
 }
 
 .flickity-page-dots .dot.is-selected {
-  box-shadow: inset 0 0 0 5px black;
-  opacity: 0.25;
+  transform: scale(1.5);
 }
 
 .flickity-prev-next-button {
