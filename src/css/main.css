@@ -122,21 +122,21 @@ nav a.selected > .nav-icon {
 }
 
 
-/* About, Resume, References */
+/* About, Resume, References, Contact */
 
-.about, .resume, .references {
+.about, .resume, .references, .contact {
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px 50px;
+  padding: 2em 1em 2em;
   font-size: 20px;
   /* border-radius: 5px; */
   font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
 }
 
 @media only screen and (min-width: 35em) {
-  .about, .resume, .references {
+  .about, .resume, .references, .contact {
     max-width: 600px;
-    padding: 40px 40px 80px;
+    padding: 2em 2em 4em;
   }
 }
 
@@ -152,6 +152,82 @@ nav a.selected > .nav-icon {
 }
 
 
+/* Resume */
+
+.resume h2,
+.work h2 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 15px;
+}
+
+.resume h2,
+.resume h3,
+.resume h4,
+.resume h5,
+.work h2{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+  font-weight: normal;
+}
+
+.resume h2 {
+  text-align: right;
+  color: #ccc;
+}
+
+.resume h3 {
+  margin-top: 3em;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.resume h4,
+.resume h5 {
+  margin: 0;
+}
+
+@media only screen and (min-width: 35em) {
+  .resume h4 {
+    float: left;
+  }
+
+  .resume h5 {
+    float: right;
+    margin-bottom: 1em;
+  }
+}
+
+.resume ul {
+  clear: both;
+  padding-left: 1em;
+  /* list-style: none; */
+}
+
+@media only screen and (min-width: 35em) {
+  .resume ul {
+    font-size: 16px;
+  }
+}
+
+/* .resume li:before { */
+/*   font-size: 11px; */
+/*   content: "\2605"; */
+/* } */
+
+.resume hr {
+  border: none;
+  height: 1px;
+  margin: 5em 0 3em;
+  background-color: #eee;
+}
+
+.resume a {
+  color: #FF9600;
+  text-decoration: none;
+  background-color: rgba(255,150,0,0.05);
+}
+
+
 /* Work */
 
 .work {
@@ -161,11 +237,6 @@ nav a.selected > .nav-icon {
 .work h2 {
   margin-bottom: 70px;
   padding-bottom: 70px;
-  font-weight: normal;
-  text-transform: uppercase;
-  /* border-bottom: 1px solid #eee; */
-  letter-spacing: 3px;
-  font-size: 15px;
 }
 
 /* .gallery:last-child { */
@@ -235,9 +306,3 @@ nav a.selected > .nav-icon {
   box-shadow: 0 0 0 5px #fe2851;
 }
 
-
-/* Contact */
-
-.contact {
-  background-color: #44DB5E;
-}
