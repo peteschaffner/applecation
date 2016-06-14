@@ -19,7 +19,6 @@ var metalsmith = Metalsmith(__dirname);
 metalsmith
   .source('./src')
   .destination('./build')
-  .clean(false)
   .use(collections({
     work: {
       pattern: 'work/**/*.md',
@@ -30,13 +29,9 @@ metalsmith
   .use(markdown({
     smartypants: true
   }))
-  .use(permalinks({
-    relative: false
-  }))
+  .use(permalinks())
   .use(layouts({
     engine: 'handlebars',
-    // default: 'default.html',
-    // pattern: '*|)}>#*.html',
     partials: {
       header: 'partials/header',
       footer: 'partials/footer'
@@ -44,8 +39,7 @@ metalsmith
   }))
   .use(watch({
     paths: {
-      '${source}/**/*': true,
-      '${source}/work/*': '**/*.md',
+      '${source}/**/*': '**/*',
       'layouts/**/*': '**/*.md'
     },
     livereload: true
