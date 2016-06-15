@@ -293,3 +293,9 @@ nav a.selected > .nav-icon {
   box-shadow: 0 0 0 5px #fe2851;
 }
 
+
+/* References  */
+
+.references, .contact {
+  background-color: #f2f2f2;
+}
