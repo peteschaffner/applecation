@@ -139,7 +139,8 @@ nav a.selected > .nav-icon {
 }
 
 .resume h2,
-.work h2 {
+.work h2,
+.contact_card h2 {
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 15px;
@@ -149,7 +150,9 @@ nav a.selected > .nav-icon {
 .resume h3,
 .resume h4,
 .resume h5,
-.work h2{
+.work h2,
+.contact_card h2,
+.contact_card h3 {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
   font-weight: normal;
 }
@@ -293,3 +296,82 @@ nav a.selected > .nav-icon {
   box-shadow: 0 0 0 5px #fe2851;
 }
 
+
+/* References, Contact  */
+
+.references, .contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.references, .contact {
+  background-color: transparent;
+}
+
+.references a {
+  color: #FE2851;
+}
+
+.contact_card {
+  background-color: white;
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+  max-height: 230px;
+  margin-bottom: 1em;
+  padding: 1em;
+  text-align: center;
+}
+
+.contact_card:last-child {
+  margin-bottom: 0;
+}
+
+.contact_card-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  overflow: hidden;
+  margin: 1em auto;
+}
+
+.contact_card-avatar img {
+  max-width: 100%;
+}
+
+.contact_card h2 {
+  margin: 1.5em 0 0 0;
+}
+
+.contact_card h3 {
+  font-size: 14px;
+  font-weight: lighter;
+  letter-spacing: 0.5px;
+  margin: 0 0 2em;
+}
+
+.contact_card a {
+  font-size: 16px;
+  text-decoration: none;
+  /* margin: 0 0.25em; */
+  padding: 0 0.5em;
+  border-right: 1px solid #eee;
+}
+
+.contact_card a:last-child {
+  border: none;
+}
+
+.contract_card-contact {
+  display: flex;
+  justify-content: center;
+}
+
+.contact {
+  justify-content: center;
+}
+.contact a {
+  color: #3DC555;
+}

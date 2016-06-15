@@ -24,7 +24,8 @@ var metalsmith = Metalsmith(__dirname)
       pattern: 'work/**/*.md',
       sortBy: 'date',
       reverse: true
-    }
+    },
+    references: 'references/**/*.md'
   }))
   .use(markdown({ smartypants: true }))
   .use(permalinks({ relative: false }))
@@ -41,7 +42,7 @@ if (process.env.NODE_ENV === 'development') {
   metalsmith.use(watch({
     paths: {
       '${source}/**/*': true,
-      '${source}/work/**/*': '**/*.md',
+      '${source}/**/*.md': '**/*.md',
       'layouts/**/*': '**/*.md'
     },
     livereload: true
