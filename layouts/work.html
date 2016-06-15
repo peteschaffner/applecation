@@ -12,7 +12,8 @@
       {{#each images}}
 
       <div class="gallery-cell">
-        <img class="gallery-cell-image" data-flickity-lazyload="{{ ../rootPath }}img/{{ ../path }}/{{ this }}">
+        <img class="gallery-cell-image"
+          data-flickity-lazyload="{{ @root.rootPath }}img/{{ ../path }}/{{ this }}">
       </div>
 
       {{/each}}
