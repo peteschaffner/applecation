@@ -12,7 +12,7 @@
       {{#each images}}
 
       <div class="gallery-cell">
-        <img class="gallery-cell-image" data-flickity-lazyload="/img/{{ ../path }}/{{ this }}">
+        <img class="gallery-cell-image" data-flickity-lazyload="{{ ../rootPath }}img/{{ ../path }}/{{ this }}">
       </div>
 
       {{/each}}
@@ -25,5 +25,5 @@
 
 </main>
 
-<script src="/js/flickity.pkgd.min.js"></script>
+<script src="{{ rootPath }}js/flickity.pkgd.min.js"></script>
 {{> footer }}

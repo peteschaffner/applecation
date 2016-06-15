@@ -6,40 +6,65 @@
   <meta name="description" content="{{ description }}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/flickity.css">
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="{{ rootPath }}css/normalize.css">
+  <link rel="stylesheet" href="{{ rootPath }}css/flickity.css">
+  <link rel="stylesheet" href="{{ rootPath }}css/main.css">
+
+  <!-- Hack: we need relative paths for those SVG assets -->
+  <style>
+
+    nav a .nav-icon {
+      background-image: url({{ rootPath }}img/about-sprite.svg);
+    }
+
+    nav a[href*="work"] .nav-icon {
+      background-image: url({{ rootPath }}img/work-sprite.svg);
+    }
+
+    nav a[href*="resume"] .nav-icon {
+      background-image: url({{ rootPath }}img/resume-sprite.svg);
+    }
+
+    nav a[href*="references"] .nav-icon {
+      background-image: url({{ rootPath }}img/references-sprite.svg);
+    }
+
+    nav a[href*="contact"] .nav-icon {
+      background-image: url({{ rootPath }}img/contact-sprite.svg);
+    }
+
+  </style>
 </head>
 <body>
   <nav>
     <ul>
       <li>
-        <a href="/" {{#unless path}}class="selected"{{/unless}}>
+        <a href="{{ rootPath }}" {{#unless path}}class="selected"{{/unless}}>
           <div class="nav-icon"></div>
           <div>About</div>
         </a>
       </li>
       <li>
-        <a href="/work" {{#includes path "work"}}class="selected"{{/includes}}>
+        <a href="{{ rootPath }}work" {{#includes path "work"}}class="selected"{{/includes}}>
           <div class="nav-icon work-wrench" id="work-wrench"></div>
           <div class="nav-icon work-pencil" id="work-pencil"></div>
           <div>Work</div>
         </a>
       </li>
       <li>
-        <a href="/resume" {{#includes path "resume"}}class="selected"{{/includes}}>
+        <a href="{{ rootPath }}resume" {{#includes path "resume"}}class="selected"{{/includes}}>
           <div class="nav-icon"></div>
           <div>Résumé</div>
         </a>
       </li>
       <li>
-        <a href="/references" {{#includes path "references"}}class="selected"{{/includes}}>
+        <a href="{{ rootPath }}references" {{#includes path "references"}}class="selected"{{/includes}}>
           <div class="nav-icon"></div>
           <div>References</div>
         </a>
       </li>
       <li>
-        <a href="/contact" {{#includes path "contact"}}class="selected"{{/includes}}>
+        <a href="{{ rootPath }}contact" {{#includes path "contact"}}class="selected"{{/includes}}>
           <div class="nav-icon"></div>
           <div>Contact</div>
         </a>

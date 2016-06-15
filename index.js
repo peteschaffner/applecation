@@ -5,6 +5,7 @@ var Handlebars  = require('handlebars');
 var layouts     = require('metalsmith-layouts');
 var markdown    = require('metalsmith-markdown');
 var permalinks  = require('metalsmith-permalinks');
+var rootpath    = require('metalsmith-rootpath');
 var watch       = require('metalsmith-watch');
 
 Handlebars.registerHelper('includes', function(a, b, opts) {
@@ -19,6 +20,7 @@ var metalsmith = Metalsmith(__dirname);
 metalsmith
   .source('./src')
   .destination('./build')
+  .clean(false)
   .use(collections({
     work: {
       pattern: 'work/**/*.md',
@@ -26,10 +28,9 @@ metalsmith
       reverse: true
     }
   }))
-  .use(markdown({
-    smartypants: true
-  }))
-  .use(permalinks())
+  .use(markdown({ smartypants: true }))
+  .use(permalinks({ relative: false }))
+  .use(rootpath())
   .use(layouts({
     engine: 'handlebars',
     partials: {
@@ -39,7 +40,8 @@ metalsmith
   }))
   .use(watch({
     paths: {
-      '${source}/**/*': '**/*',
+      '${source}/**/*': true,
+      '${source}/work/**/*': '**/*.md',
       'layouts/**/*': '**/*.md'
     },
     livereload: true

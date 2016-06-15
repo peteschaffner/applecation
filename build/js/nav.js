@@ -1,5 +1,5 @@
 // About
-var aboutLink = document.querySelector('nav a[href="/"] .nav-icon');
+var aboutLink = document.querySelector('.nav-icon');
 new Animocon(aboutLink, [
   // burst animation
   new mojs.Burst({
