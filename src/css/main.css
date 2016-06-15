@@ -255,8 +255,7 @@ nav a.selected > .nav-icon {
 
 .flickity-page-dots {
   position: static;
-  margin-top: 10px;
-  bottom: 10px;
+  margin-top: 1.3em;
 }
 
 .flickity-page-dots .dot {
@@ -271,7 +270,7 @@ nav a.selected > .nav-icon {
 }
 
 .flickity-page-dots .dot.is-selected {
-  transform: scale(1.5);
+  transform: scale(1.25);
 }
 
 .flickity-prev-next-button {
