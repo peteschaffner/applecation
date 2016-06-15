@@ -270,7 +270,7 @@ nav a.selected > .nav-icon {
 }
 
 .flickity-page-dots .dot.is-selected {
-  transform: scale(1.25);
+  transform: scale(1.3);
 }
 
 .flickity-prev-next-button {
