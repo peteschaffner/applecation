@@ -15,9 +15,7 @@ Handlebars.registerHelper('includes', function(a, b, opts) {
         return opts.inverse(this);
 });
 
-var metalsmith = Metalsmith(__dirname);
-
-metalsmith
+var metalsmith = Metalsmith(__dirname)
   .source('./src')
   .destination('./build')
   .clean(false)
@@ -37,8 +35,10 @@ metalsmith
       header: 'partials/header',
       footer: 'partials/footer'
     }
-  }))
-  .use(watch({
+  }));
+
+if (process.env.NODE_ENV === 'development') {
+  metalsmith.use(watch({
     paths: {
       '${source}/**/*': true,
       '${source}/work/**/*': '**/*.md',
@@ -47,7 +47,9 @@ metalsmith
     livereload: true
   }))
   .use(express())
-  .build(function(err, files) {
+}
+
+metalsmith.build(function(err, files) {
     if (err) { throw err; }
     // workaround for duplicate collection data:
     // https://github.com/segmentio/metalsmith-collections/issues/27
