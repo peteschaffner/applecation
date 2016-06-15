@@ -12,11 +12,11 @@ life's best work with you.
 I'm a technical and self-driven individual and I believe that to design something
 great you need to understand the materials and processes involved to build it.
 Thus, I'm just as at home with a pencil as I am with a terminal. I also believe
-that the tools we use are important and they are in as much need for good design as the things
-they create.
+that the tools we use are important and they are in as much need of good design
+as the things they create.
 
 I've compiled some of my work and experiences here, though unfortunately I am
-unable to share much of what I've been doing lately at my current employer.
+unable to share much of what I've been doing lately.
 Please feel free to look around and let me know if you have any questions.
 
 I look forward to hearing from you,
