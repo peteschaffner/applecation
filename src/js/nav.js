@@ -43,7 +43,7 @@ var wrench = document.querySelector('#work-wrench');
 new Animocon(workLink, [
   // rotate pencil
   new mojs.Tween({
-    duration : 1200,
+    duration : 1500,
     easing: mojs.easing.bezier(0.1, 1, 0.3, 1),
     onUpdate: function(progress) {
       var scale = '';
@@ -55,7 +55,7 @@ new Animocon(workLink, [
   }),
   // rotate wrench
   new mojs.Tween({
-    duration : 800,
+    duration : 1100,
     easing: mojs.easing.bezier(0.1, 1, 0.3, 1),
     onUpdate: function(progress) {
       var scale = '';

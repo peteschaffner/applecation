@@ -1,8 +1,9 @@
 ---
 title: Miscellaneous UI
-date: 2013
+order: 3
 images:
   - dejalu.jpg
+  - dejalu2.jpg
   - vico.jpg
   - vico2.jpg
   - vico3.jpg

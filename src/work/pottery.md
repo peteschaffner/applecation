@@ -1,6 +1,6 @@
 ---
 title: Pottery
-date: 2010
+order: 6
 images:
   - teapot.jpg
   - bamboo_teapot.jpg

@@ -1,11 +1,9 @@
 ---
 title: Icons
-description: Assorted icons
-date: 2017
+order: 1
 images:
-  - cloudy1.jpg
   - cloudy2.jpg
-  - sourceicons.jpg
+  - cloudy1.jpg
   - chocolat.jpg
   - sidebariconpreview.jpg
   - iterm2.jpg

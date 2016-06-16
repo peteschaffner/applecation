@@ -15,6 +15,10 @@ Handlebars.registerHelper('includes', function(a, b, opts) {
         return opts.inverse(this);
 });
 
+function sorter(a, b) {
+  return a.order - b.order;
+}
+
 var metalsmith = Metalsmith(__dirname)
   .source('./src')
   .destination('./build')
@@ -22,12 +26,11 @@ var metalsmith = Metalsmith(__dirname)
   .use(collections({
     work: {
       pattern: 'work/**/*.md',
-      sortBy: 'date',
-      reverse: true
+      sortBy: sorter
     },
     references: {
       pattern: 'references/**/*.md',
-      sortBy: function (a, b) { return a.order - b.order; }
+      sortBy: sorter
     }
   }))
   .use(markdown({ smartypants: true }))
@@ -54,8 +57,8 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 metalsmith.build(function(err, files) {
-    if (err) { throw err; }
-    // workaround for duplicate collection data:
-    // https://github.com/segmentio/metalsmith-collections/issues/27
-    metalsmith.metadata({});
-  });
+  if (err) { throw err; }
+  // workaround for duplicate collection data:
+  // https://github.com/segmentio/metalsmith-collections/issues/27
+  metalsmith.metadata({});
+});

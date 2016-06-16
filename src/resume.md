@@ -19,7 +19,7 @@ title: Résumé
 - Created a set of internal Framer.js modules
 - Prototyped new Chrome features natively
 - Contributed to Chrome for iOS codebase (view/layout changes)
-- Contributed to internal iOS framework
+- Contributed to an internal iOS framework
 - Contributed to and proofread design docs
 - Designed a new [unreleased] iOS app
 

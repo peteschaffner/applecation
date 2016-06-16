@@ -1,11 +1,11 @@
 ---
 title: Logos
-date: 2015
+order: 5
 images:
-  - chrome.jpg
+  - waynecounty.jpg
   - conceited.jpg
   - stance.jpg
   - thebarn.jpg
   - marchtothisbeat.jpg
-  - waynecounty.jpg
+  - chrome.jpg
 ---

@@ -29,6 +29,8 @@ footer {
   padding: 1.25em 0;
   text-align: center;
   font-size: 14px;
+  font-weight: lighter;
+  color: #ccc;
 }
 
 nav ul {
@@ -110,7 +112,7 @@ nav a.selected > .nav-icon {
 .about, .resume, .references, .contact {
   width: 100%;
   margin: 0 auto;
-  padding: 2em 1em 2em;
+  padding: 2em 1em 4em;
   font-size: 20px;
   /* border-radius: 5px; */
   font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
