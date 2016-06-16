@@ -20,4 +20,4 @@ unfortunately I am unable to share much of what I'm currently up to.
 Nonetheless, I hope [this little site](https://github.com/peteschaffner/applecation/)
 and its contents can somewhat speak to my abilities.
 
-I look forward to hearing from you,
+Sincerely,
