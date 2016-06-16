@@ -16,6 +16,10 @@ body {
   background-color: #f2f2f2;
 }
 
+a {
+  text-decoration: none;
+}
+
 main {
   flex: 1;
   background-color: white;
@@ -49,7 +53,6 @@ nav a {
   flex-direction: column;
   align-items: center;
   max-width: 48px;
-  text-decoration: none;
   color: black;
   font-size: 11px;
   white-space: nowrap;
@@ -131,6 +134,11 @@ nav a.selected > .nav-icon {
   font-weight: 400;
 }
 
+.about a {
+  color: #54C7FC;
+  /* background-color: rgba(84, 199, 252, 0.1); */
+}
+
 
 /* Resume */
 
@@ -210,8 +218,7 @@ nav a.selected > .nav-icon {
 
 .resume a {
   color: #FF9600;
-  text-decoration: none;
-  background-color: rgba(255,150,0,0.05);
+  /* background-color: rgba(255,150,0,0.05); */
 }
 
 
@@ -302,7 +309,7 @@ nav a.selected > .nav-icon {
 .references, .contact {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -312,6 +319,7 @@ nav a.selected > .nav-icon {
 
 .references a {
   color: #FE2851;
+  /* background-color: rgba(254, 40, 81, 0.03); */
 }
 
 .contact_card {
@@ -354,7 +362,6 @@ nav a.selected > .nav-icon {
 
 .contact_card a {
   font-size: 16px;
-  text-decoration: none;
   /* margin: 0 0.25em; */
   padding: 0 0.5em;
   border-right: 1px solid #eee;
@@ -369,9 +376,7 @@ nav a.selected > .nav-icon {
   justify-content: center;
 }
 
-.contact {
-  justify-content: center;
-}
 .contact a {
   color: #3DC555;
+  /* background-color: rgba(68, 219, 94, 0.05) */
 }
