@@ -1,6 +1,7 @@
 ---
 name: Louis Romero
 title: Engineer at Google
-email: lpromero@google.com
+email: louis@romero-hsu.com
 twitter: arcank
+order: 2
 ---

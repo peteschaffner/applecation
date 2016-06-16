@@ -25,7 +25,10 @@ var metalsmith = Metalsmith(__dirname)
       sortBy: 'date',
       reverse: true
     },
-    references: 'references/**/*.md'
+    references: {
+      pattern: 'references/**/*.md',
+      sortBy: function (a, b) { return a.order - b.order; }
+    }
   }))
   .use(markdown({ smartypants: true }))
   .use(permalinks({ relative: false }))
