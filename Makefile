@@ -4,7 +4,7 @@ dev: node_modules
 build: node_modules
 	node index.js
 
-deploy: bin/deploy.sh clean build
+deploy: bin/deploy.sh build
 	GIT_DEPLOY_DIR=build \
 	GIT_DEPLOY_BRANCH=gh-pages \
 	./bin/deploy.sh

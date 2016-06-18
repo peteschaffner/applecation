@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Louis Romero",
+    "job_title": "Engineer at Google",
+    "email": "louis@romero-hsu.com",
+    "twitter": "arcank",
+    "image": "references/louis.jpg"
+  },
+  {
+    "name": "Dom Leca",
+    "job_title": "Co-founder of Sparrow.app",
+    "email": "dom.leca@gmail.com",
+    "twitter": "domleca",
+    "image": "references/dom.jpg"
+  },
+  {
+    "name": "Hoà V. Dinh",
+    "job_title": "Engineer at Facebook",
+    "email": "dinh.viet.hoa@gmail.com",
+    "twitter": "dinhvh",
+    "image": "references/hoa.jpg"
+  },
+  {
+    "name": "Jérôme Lebel",
+    "job_title": "Engineer at Google",
+    "email": "lebel.jerome@gmail.com",
+    "image": "references/jerome.jpg"
+  }
+]

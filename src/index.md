@@ -1,5 +1,4 @@
 ---
-layout: index.html
 title: About
 ---
 
@@ -21,3 +20,5 @@ Nonetheless, I hope this little site and its contents can somewhat speak to my
 abilities.
 
 Sincerely,
+
+<img src="{{ rootPath }}img/signature.png" alt="My signature" width="118">

@@ -1,0 +1,28 @@
+---
+title: Work
+---
+
+{{#each work}}
+
+<div class="gallery js-flickity" data-flickity-options='{
+  "imagesLoaded": true,
+  "wrapAround": true,
+  "lazyLoad": 1,
+  "cellSelector": ".gallery-cell" }'>
+
+  {{#each images}}
+
+  <div class="gallery-cell">
+    <img class="gallery-cell-image"
+      data-flickity-lazyload="{{ @root.rootPath }}img/work/{{ this }}">
+  </div>
+
+  {{/each}}
+
+</div>
+
+<h2>{{ title }}</h2>
+
+{{/each}}
+
+<script src="{{ rootPath }}js/flickity.pkgd.min.js"></script>

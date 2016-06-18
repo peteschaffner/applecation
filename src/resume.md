@@ -1,5 +1,4 @@
 ---
-layout: resume.html
 title: Résumé
 ---
 
