@@ -72,6 +72,14 @@ nav a.selected {
   margin-bottom: 5px;
 }
 
+nav a .nav-icon {
+  background-image: url(../img/about-sprite.svg);
+}
+
+nav a[href*="work"] .nav-icon {
+  background-image: url(../img/work-sprite.svg);
+}
+
 #work-wrench {
   background-position: 0 -32px;
 }
@@ -89,6 +97,18 @@ nav a[href*="work"].selected #work-wrench {
 nav a[href*="work"]:hover #work-pencil,
 nav a[href*="work"].selected #work-pencil {
   background-position: 0 -64px;
+}
+
+nav a[href*="resume"] .nav-icon {
+  background-image: url(../img/resume-sprite.svg);
+}
+
+nav a[href*="references"] .nav-icon {
+  background-image: url(../img/references-sprite.svg);
+}
+
+nav a[href*="contact"] .nav-icon {
+  background-image: url(../img/contact-sprite.svg);
 }
 
 nav a[href=""]:hover .nav-icon,

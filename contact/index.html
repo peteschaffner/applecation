@@ -9,31 +9,6 @@
   <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/flickity.css">
   <link rel="stylesheet" href="../css/main.css">
-
-  <!-- Hack: we need relative paths for those SVG assets -->
-  <style>
-
-    nav a .nav-icon {
-      background-image: url(../img/about-sprite.svg);
-    }
-
-    nav a[href*="work"] .nav-icon {
-      background-image: url(../img/work-sprite.svg);
-    }
-
-    nav a[href*="resume"] .nav-icon {
-      background-image: url(../img/resume-sprite.svg);
-    }
-
-    nav a[href*="references"] .nav-icon {
-      background-image: url(../img/references-sprite.svg);
-    }
-
-    nav a[href*="contact"] .nav-icon {
-      background-image: url(../img/contact-sprite.svg);
-    }
-
-  </style>
 </head>
 <body>
   <nav>
@@ -72,33 +47,30 @@
     </ul>
   </nav>
 
-<main class="contact">
+  <main class=" contact ">
+  
+<div class="contact_card">
+  <div class="contact_card-avatar">
+    <img src="../img/pete.jpg" alt="Pete Schaffner avatar">
+  </div>
 
-    <div class="contact_card">
-      <div class="contact_card-avatar">
-        <img src="../img/pete.jpg" alt="Pete Schaffner avatar">
-      </div>
+  <h2>Pete Schaffner</h2>
+  <h3>Designer at Google</h3>
 
-      <h2>Pete Schaffner</h2>
-      <h3>Designer at Google</h3>
+  <div class="contract_card-contact">
+    <a class="contact_card-email" href="mailto:pjschaffner@gmail.com">Email</a>
 
-      <div class="contract_card-contact">
-        <a class="contact_card-phone" href="tel:+33642731805">Phone</a>
+    <a class="contact_card-phone" href="">Phone</a>
 
-        <a class="contact_card-email" href="mailto:pjschaffner@gmail.com">Email</a>
+    <a class="contact_card-twitter" href="https://twitter.com/peteschaffner">Twitter</a>
 
-        <a class="contact_card-twitter" href="https://twitter.com/peteschaffner">Twitter</a>
+    <a class="contact_card-github" href="">GitHub</a>
+  </div>
+</div>
 
-        <a class="contact_card-github" href="https://github.com/peteschaffner">GitHub</a>
-      </div>
-    </div>
-
-</main>
   </main>
 
-  <footer>
-© 2016 Pete Schaffner. All Rights Reserved.
-  </footer>
+  <footer>© 2016 Pete Schaffner. All Rights Reserved.</footer>
 
   <script src="../js/mo.min.js"></script>
   <script src="../js/nav.js"></script>
