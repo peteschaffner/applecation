@@ -170,3 +170,10 @@ function Animocon(el, tweens) {
   });
 }
 
+
+// Make it easier to scroll vertically past Flickity
+// instances on touch devices that span the viewport's width
+Flickity.prototype.hasDragStarted = function( moveVector ) {
+  // start dragging after pointer has moved 3 pixels in either direction
+  return !this.isTouchScrolling && Math.abs( moveVector.x ) > 20;
+};
