@@ -51,27 +51,26 @@ title: Résumé
 ##### 2010 – 2013
 - Created a digital design department
 - Defined our workflow and standard for web-based projects
-- Led corporate, commerce, application and promotional web projects
-- Performed CMS system training for clients
-- Provided technical support to clients for content management, server
-administration, programming and email marketing
-- Managed client/project manager expectations throughout the life of projects
-- Acted as liaison between clients, art directors and back-end developers
-- Adopted company IT and networking responsibilities
-- Designed and developed [an online publication](http://focus.luminafoundation.org/focus-archive/) for Lumina Foundation
 - Designed and developed an iOS application for Lumina Foundation
 - [Designed](http://strongernation.luminafoundation.org/report/2016/) and [developed](https://github.com/irong8/sn2013) Lumina Foundation's annual report in digital and print forms
+- Designed and developed [an online publication](http://focus.luminafoundation.org/focus-archive/) for Lumina Foundation
 - Designed and prototyped an interactive tourism map for Wayne County, IN
+- Led corporate, commerce and marketing web projects
+- Managed client/project manager expectations throughout the life of projects
+- Acted as liaison between clients, art directors and back-end developers
+- Performed CMS training for clients
+- Provided technical support to clients
+- Adopted company IT and networking responsibilities
 
 ### Freelance/Open Source
 #### Designer & web developer
 ##### 2010 – 2013
-- [Designed](http://hagerstown.github.io/) and [developed](https://github.com/hagerstown/comprehensive-plan) Comprehensive Plan for the town of Hagerstown, IN
+- Authored [multiple Framer.js modules](https://github.com/search?q=user%3Apeteschaffner+framer), [contributed to the library](https://github.com/koenbok/Framer/pulls?utf8=✓&q=is%3Apr+author%3Apeteschaffner+), and actively talk with the devs about how to improve the tool
 - Contributed to [Vico.app](https://github.com/vicoapp/vico) design and product direction
 - Designed UI elements used in [Chocolat.app](http://chocolatapp.com/)
-- Created diagrams and illustrations for the [*Explore Theatre*](http://www.pearsonexploretheatre.com/) interactive textbook
 - Contributed [icon](https://github.com/gnachman/iTerm2/pull/203) and tab UI work to iTerm2
-- Authored [multiple Framer.js modules](https://github.com/search?q=user%3Apeteschaffner+framer), [contributed to the library](https://github.com/koenbok/Framer/pulls?utf8=✓&q=is%3Apr+author%3Apeteschaffner+), and actively talk with the devs about how to improve the tool
+- [Designed](http://hagerstown.github.io/) and [developed](https://github.com/hagerstown/comprehensive-plan) Comprehensive Plan for the town of Hagerstown, IN
+- Created diagrams and illustrations for the [*Explore Theatre*](http://www.pearsonexploretheatre.com/) interactive textbook
 
 ---
 

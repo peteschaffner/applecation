@@ -14,7 +14,7 @@ build it.  Thus, I'm just as at home with a pencil as I am with a terminal. I
 also believe that the tools we use are important and that they are in as much
 need of good design as the things they create.
 
-I've compiled here some of my work and experiences for you to check out, but
+I've compiled here some of my work and experiences for you to review, but
 unfortunately I am unable to share much of what I'm currently up to.
 Nonetheless, I hope this little site and its contents can somewhat speak to my
 abilities.
