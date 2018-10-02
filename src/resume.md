@@ -42,7 +42,7 @@ title: Résumé
 ### Conceited Software
 #### Designer
 ##### 2013 – 2014
-- Designed the user interface for [version 3 of Linkinus.app](https://dl.dropboxusercontent.com/u/3684640/linkinus3/index.html)
+- Designed the user interface for [version 3 of Linkinus.app](reference/linkinus3)
 - Created a new company logo and began a rebrand
 - Helped to craft a new business plan and “company mission”
 
