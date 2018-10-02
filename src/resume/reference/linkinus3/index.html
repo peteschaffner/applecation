@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Linkinus 3</title>
+    <style>
+    body {
+      margin: 0 auto;
+      width: 981px;
+      padding-top: 60px;
+      background: url(linen.png) top left repeat;
+      color: #333;
+      font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;;
+      text-shadow: 0 1px 1px #fff;
+      line-height: 1.5em;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: normal;
+    }
+
+    h1 {
+      font-family: helvetica, sans-serif;
+      position: relative;
+      margin: 1em 0 30px 275px;
+    }
+
+    h2 {
+      margin-top: 2em;
+      padding-top: 2em;
+      border-top: 1px dashed #eee;
+    }
+
+    h2:first-child {
+      margin-top: 1em;
+      padding: 0;
+      border: none;
+    }
+
+    img {
+      padding: 5px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    a {
+      color: #8d9bba;
+    }
+
+    figure {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    header {
+      width: 811px;
+      margin: 0 auto 85px;
+    }
+
+    footer img, #icon {
+      border: none;
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    .tagline, footer {
+      color: #90909E;
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 4em;
+      font-size: .75em;
+    }
+
+    #meat {
+      width: 811px;
+      padding: 56px 85px 85px;
+      background: #fdfdfd;
+      box-shadow: 0 1px 2px #B7BCC7, inset 0 0 3px white;
+      border-radius: 4px;
+    }
+
+    #icon {
+      position: absolute;
+      left: 123px;
+      top: -77px;
+      display: block;
+    }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Linkinus <b>3</b><img id="icon" src="icon2.png" alt="Linkinus Icon"></h1>
+      <p class="tagline">A concept for version 3 of the premier IRC client for OS X.</p>
+    </header>
+
+    <section id="meat">
+      <h2 id="primer">Primer</h2>
+      <p>As you look through the mockups below, you will notice that I tried to 
+      imagine how a 2-pane Linkinus might work. I have always felt claustrophobic 
+      while using any 3-paned app (yes, this includes Chocolat). For those that 
+      feel the same, I thought it might be nice to offer users an option as 
+      to where the "User list" would be docked. I will stick to this layout for 
+      the remainder of these comps.</p>
+
+      <h2 id="groups">Groups</h2>
+      <figure><img src="1.png" alt="Groups"></figure>
+      <p>Groups are one of the features that sets your app apart, so I thought 
+      it would be best to make the creating/managing of them a key part of the 
+      UI.</p>
+      <p>The titlebar has been made thick, in order to accommodate buttons and 
+      other elements, and this is where the "Groups list" and "Group creator" 
+      buttons could live. The image below shows how the group manager, 
+      brought front and center in the UI, could live in a popup window. By 
+      taking group management out of the Preference pane, and into the main 
+      window, it will hopefully make for a smoother experience. The "Group 
+      creator", (or plus sign button) could be a quick way to slice up the chat 
+      view (I imagine holding the &#x2325; modifier would insert a vertical 
+      split, rather than a horizontal). From here you could drag queries/channels 
+      in and build your perfect grouping.</p>
+      <figure><img src="2.png" alt="Groups w/ Popover"></figure>
+
+      <h2 id="inline-images">Inline images</h2>
+      <figure><img src="3.png" alt="Inline image"></figure>
+      <p>Another wonderful feature in Linkinus is the ability to view linked 
+      images inline. These next two mockups show how inline media might be 
+      treated&hellip; where "breaks" in the flow of messages would show glimpses 
+      of the linked image. Clicking on the area would unfold the full-sized image 
+      in all its beauty.</p>
+      <p>It would be great to see the same kind of functionality for video, and 
+      audio.</p>
+      <figure><img src="4.png" alt="Inline image expanded" /></figure>
+
+      <h2 id="splits">4-way split</h2>
+      <figure><img src="5.png" alt="4-way split"></figure>
+      <p>Here we have a 4-way split, with one section ready to be populated.</p>
+      <p>In this particular mockup, the text input is stationary, as my gut 
+      tells me that positioning inputs relative to their respective chat section 
+      would be jarring for the user. I would, however, like to mockup 
+      an alternative, just to see what it would feel like, as I'm not fully 
+      convinced this is the right solution.</p>
+      <p>P.S. I am doing these designs on my MBA, thus the constrained window 
+      size ;)</p>
+
+      <h2 id="add-channel">Adding channels</h2>
+      <figure><img src="6.png" alt="Adding channels"></figure>
+      <p>The comp above illustrates a popover interface for discovering new 
+      channels based on a keyword search. I am not sure if their is a ranking 
+      system for the quality of IRC channels, but Nicholas mentioned ratings 
+      in the Kickoff task, so this accounts for that situation.</p>
+      <figure><img src="7.png" alt="Searching for channels"></figure>
+
+      <h2 id="user-list">User list</h2>
+      <figure><img src="8.png" alt="Alternate user list as a popover"></figure>
+      <p>This mockup shows an alternate user list that lives in a popover.</p>
+      <p>This concept needs a little more work, seeing as I would like to use 
+      popovers for the user info windows, and a popover off of another popover 
+      seems like bad news bears.</p>
+    </section>
+
+    <footer>
+      <img src="icon3.png" alt="Linkinus icon" />
+      <p>by <a href="http://twitter.com/peteschaffner">@peteschaffner</a></p>
+    </footer>
+  </body>
+</html>
