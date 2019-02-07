@@ -1,0 +1,475 @@
+/* ==========================================================================
+   HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+#map-canvas {
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    bottom: 9px;
+    left: 9px;
+}
+
+#toolbar {
+  position: absolute;
+  height: 43px;
+  width: 80%;
+  min-width: 762px;
+  top: 50%;
+  left: 50%;
+  margin-top: -22px;
+  margin-left: -40%;
+  background: rgba(255,255,255,0.95);
+  border-radius: 4px;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.05);
+  z-index: 1;
+}
+
+.controls, .categories, .categories ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+.controls, #search {
+  float: left;
+}
+
+.controls {
+  width: 241px;
+  height: 100%;
+  line-height: 43px;
+}
+
+.controls li, .categories > li {
+  float: left;
+  overflow: hidden;
+}
+
+.controls a, .categories a {
+  display: block;
+}
+
+.controls li {
+  text-indent: -999em;
+  border-right: 1px solid rgba(0,0,0,0.05);
+}
+
+.controls a {
+  width: 41px;
+}
+
+a.home {
+  width: 114px;
+  background: url(../img/logo.png) 10px 4px no-repeat;
+}
+
+a.home:hover {
+  background: url(../img/logo-hover.png) 10px 4px no-repeat;
+}
+
+.zoom-in {
+  background: url(../img/plus.png) center center no-repeat;
+}
+
+.zoom-out {
+  background: url(../img/minus.png) center center no-repeat;
+}
+
+.proximity {
+  background: url(../img/proximity.png) center center no-repeat;
+}
+
+.proximity.off {
+  opacity: 0.5;
+}
+
+#search input {
+  position: absolute;
+  height: 100%;
+  left: 241px;
+  width: 81px;
+  text-indent: -999em;
+  margin: 0;
+  border: none;
+  background: url(../img/search.png) 11px 13px no-repeat;
+  outline: none;
+  -webkit-appearance: none;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+#search input, #search .close {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.active #search input {
+  box-shadow: inset 0 0 0 1px #33a1ff, 0 0 3px #33a1ff;
+  opacity: 1;
+  padding: 0 0 0 41px;
+  width: -webkit-calc(100% - 282px);
+  right: 0;
+  text-indent: 0;
+  cursor: auto;
+}
+
+#search .close {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  width: 28px;
+  line-height: 43px;
+  text-indent: -999em;
+  background: url(../img/close-search.png) left center no-repeat;
+}
+
+.active .categories, #search .close {
+  display: none;
+}
+
+.active #search .close {
+  display: block;
+}
+
+.categories {
+  float: right;
+  line-height: 44px;
+}
+
+.categories li {
+  margin-right: 20px;
+}
+
+.categories a {
+  padding-left: 22px;
+  font-weight: bold;
+  background: url(../img/check-off.png) left center no-repeat;
+  text-decoration: none;
+  color: #7f7f7f;
+  opacity: 0.5;
+}
+
+.categories .active a {
+  opacity: 1;
+}
+
+.blue.active a {
+  background: url(../img/check-blue.png) left center no-repeat;
+  color: #468bc7;
+}
+
+.green.active a {
+  background: url(../img/check-green.png) left center no-repeat;
+  color: #19af5a;
+}
+
+.orange.active a {
+  background: url(../img/check-orange.png) left center no-repeat;
+  color: #e8613a;
+}
+
+.yellow.active a {
+  background: url(../img/check-yellow.png) left center no-repeat;
+  color: #ffd100;
+}
+
+.categories ul {
+  display: none;
+}
+
+#info {
+  position: absolute;
+  display: block;
+  height: 39px;
+  width: 39px;
+  top: 50%;
+  left: -9px;
+  margin-top: -20px;
+  background: white;
+  text-align: center;
+  line-height: 39px;
+  font-family: baskerville, serif;
+  font-style: italic;
+  text-indent: 9px;
+  text-decoration: none;
+  color: #7f7f7e;
+  border-radius: 20px;
+  box-shadow: 2px 0 0 rgba(0,0,0,0.12), 1px 0 0 rgba(0,0,0,0.12);
+  z-index: 1;
+}
+
+
+
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    a.home {
+      background-image: url(../img/logo@2x.png);
+      background-size: 75px 31px;
+    }
+
+    a.home:hover {
+      background-image: url(../img/logo-hover@2x.png);
+      background-size: 75px 31px;
+    }
+
+    .zoom-in {
+      background-image: url(../img/plus@2x.png);
+      background-size: 17px 17px;
+    }
+
+    .zoom-out {
+      background-image: url(../img/minus@2x.png);
+      background-size: 15px 3px;
+    }
+
+    .proximity {
+      background-image: url(../img/proximity@2x.png);
+      background-size: 21px 21px;
+    }
+
+    #search input {
+      background-image: url(../img/search@2x.png);
+      background-size: 18px 18px;
+    }
+
+    .categories a {
+      background-image: url(../img/check-off@2x.png);
+      background-size: 16px 16px;
+    }
+
+    .blue.active a {
+      background-image: url(../img/check-blue@2x.png);
+      background-size: 18px 16px;
+    }
+
+    .green.active a {
+      background-image: url(../img/check-green@2x.png);
+      background-size: 18px 16px;
+    }
+
+    .orange.active a {
+      background-image: url(../img/check-orange@2x.png);
+      background-size: 18px 16px;
+    }
+
+    .yellow.active a {
+      background-image: url(../img/check-yellow@2x.png);
+      background-size: 18px 16px;
+    }
+
+    #search .close {
+      background-image: url(../img/close-search@2x.png);
+      background-size: 17px 17px;
+    }
+}
+
+@media only screen and (min-width: 35em) {
+
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

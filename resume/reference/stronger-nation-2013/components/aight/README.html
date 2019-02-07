@@ -1,0 +1,60 @@
+<h1 id="-img-src-https-raw-github-com-shawnbot-aight-master-assets-aight-png-"><img src="https://raw.github.com/shawnbot/aight/master/assets/aight.png"></h1>
+<p>Aight is a collection of shims and polyfills that get IE8 up to speed with
+a bare minimum of HTML5 compatibility, providing all of the interfaces
+necessary to do HTML-only DOM manipulation with d3.js (and other libraries that
+rely on those interfaces). It includes:</p>
+<ul>
+<li><p><a href="https://github.com/kriskowal/es5-shim">es5-shim</a>, which implements all of
+the Array prototype methods in the ES5 spec, and other goodies.</p>
+</li>
+<li><p><a href="https://github.com/eligrey/classList.js">classList.js</a>, which implements the
+Element prototype’s classList property, for intelligently adding and removing
+classes from HTML elements.</p>
+</li>
+<li><p>A shim for <a href="http://www.w3.org/TR/DOM-Level-2-Style/css.html#CSS-CSSStyleDeclaration">CSSStyleDeclaration</a>‘s
+setProperty() and removeProperty() methods</p>
+</li>
+<li><p>A shim for <a href="http://www.w3.org/TR/DOM-Level-2-Core/core.html#ID-DocCrElNS">document.createElementNS()</a>,
+which throws an error if you pass it an actual namespace (which IE8 doesn’t
+support). This merely provides a facade of interoperability with d3, which
+calls createElementNS() even in cases where the parent’s namespaceURI is
+undefined (as is the case in HTML5, but <em>not</em> XHTML).</p>
+</li>
+<li><p>A shim for <a href="http://www.w3.org/TR/DOM-Level-2-Style/css.html#CSS-CSSview-getComputedStyle">window.getComputedStyle()</a></p>
+</li>
+<li><p>A shim for the Element prototype’s addEventListener() and
+removeEventListener() methods, per the <a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget">DOM2 EventTarget</a>.</p>
+</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Using aight is simple. First off, be sure that you’re using the right <code>DOCTYPE</code>
+in your HTML:</p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+</code></pre>
+<p>And in your <code>&lt;head&gt;</code>, include the following <code>&lt;meta&gt;</code> tag:</p>
+<pre><code class="lang-html">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=Edge&quot;&gt;
+</code></pre>
+<p>These two steps ensure that IE8 will run in <a href="http://en.wikipedia.org/wiki/Internet_Explorer_8#Standards_mode">standards
+mode</a>.
+Finally, include <code>aight.min.js</code> (or the un-minified version, <code>aight.js</code>, if
+you’re debugging aight itself) in a <a href="http://www.quirksmode.org/css/condcom.html">conditional
+comment</a> inside the <code>&lt;head&gt;</code>:</p>
+<pre><code class="lang-html">&lt;!--[if lt IE 9]&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;aight.min.js&quot;&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+</code></pre>
+<p>Bringing it all together, you end up with:</p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=Edge&quot;&gt;
+    &lt;!--[if lt IE 9]&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;aight.min.js&quot;&gt;&lt;/script&gt;
+    &lt;![endif]--&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>For your convenience, this snippet is included with aight in <code>template.html</code>.</p>

@@ -1,0 +1,151 @@
+<h1 id="text">text</h1>
+<p>A <a href="http://requirejs.org">RequireJS</a>/AMD loader plugin for loading text
+resources.</p>
+<p>Known to work in RequireJS, but should work in other AMD loaders that support
+the same loader plugin API.</p>
+<h2 id="docs">Docs</h2>
+<p>See the <a href="http://requirejs.org/docs/api.html#text">RequireJS API text section</a>.</p>
+<h2 id="latest-release">Latest release</h2>
+<p>The latest release is always available from <a href="https://raw.github.com/requirejs/text/latest/text.js">the “latest” tag</a>.</p>
+<p>It can also be installed using <a href="https://github.com/volojs/volo">volo</a>:</p>
+<pre><code>volo add requirejs/text
+</code></pre><h2 id="usage">Usage</h2>
+<p>It is nice to build HTML using regular HTML tags, instead of building up DOM
+structures in script. However, there is no good way to embed HTML in a
+JavaScript file. The best that can be done is using a string of HTML, but that
+can be hard to manage, particularly for multi-line HTML.</p>
+<p>The text.js AMD loader plugin can help with this issue. It will automatically be
+loaded if the text! prefix is used for a dependency. Download the plugin and put
+it in the app’s <a href="http://requirejs.org/docs/api.html#config-baseUrl">baseUrl</a>
+directory (or use the <a href="http://requirejs.org/docs/api.html#config-paths">paths config</a> to place it in other areas).</p>
+<p>You can specify a text file resource as a dependency like so:</p>
+<pre><code class="lang-javascript">require([&quot;some/module&quot;, &quot;text!some/module.html&quot;, &quot;text!some/module.css&quot;],
+    function(module, html, css) {
+        //the html variable will be the text
+        //of the some/module.html file
+        //the css variable will be the text
+        //of the some/module.css file.
+    }
+);
+</code></pre>
+<p>Notice the .html and .css suffixes to specify the extension of the file. The
+“some/module” part of the path will be resolved according to normal module name
+resolution: it will use the <strong>baseUrl</strong> and <strong>paths</strong> <a href="http://requirejs.org/docs/api.html#config">configuration
+options</a> to map that name to a path.</p>
+<p>For HTML/XML/SVG files, there is another option. You can pass !strip, which
+strips XML declarations so that external SVG and XML documents can be added to a
+document without worry. Also, if the string is an HTML document, only the part
+inside the body tag is returned. Example:</p>
+<pre><code class="lang-javascript">require([&quot;text!some/module.html!strip&quot;],
+    function(html) {
+        //the html variable will be the text of the
+        //some/module.html file, but only the part
+        //inside the body tag.
+    }
+);
+</code></pre>
+<p>The text files are loaded via asynchronous XMLHttpRequest (XHR) calls, so you
+can only fetch files from the same domain as the web page (see <strong>XHR
+restrictions</strong> below).</p>
+<p>However, <a href="http://requirejs.org/docs/optimization.html">the RequireJS optimizer</a>
+will inline any text! references with the actual text file contents into the
+modules, so after a build, the modules that have text! dependencies can be used
+from other domains.</p>
+<h2 id="configuration">Configuration</h2>
+<h3 id="xhr-restrictions">XHR restrictions</h3>
+<p>The text plugin works by using XMLHttpRequest (XHR) to fetch the text for the
+resources it handles.</p>
+<p>However, XHR calls have some restrictions, due to browser/web security policies:</p>
+<p>1) Many browsers do not allow file:// access to just any file. You are better
+off serving the application from a local web server than using local file://
+URLs. You will likely run into trouble otherwise.</p>
+<p>2) There are restrictions for using XHR to access files on another web domain.
+While CORS can help enable the server for cross-domain access, doing so must
+be done with care (in particular if you also host an API from that domain),
+and not all browsers support CORS.</p>
+<p>So if the text plugin determines that the request for the resource is on another
+domain, it will try to access a “.js” version of the resource by using a
+script tag. Script tag GET requests are allowed across domains. The .js version
+of the resource should just be a script with a define() call in it that returns
+a string for the module value.</p>
+<p>Example: if the resource is ‘text!example.html’ and that resolves to a path
+on another web domain, the text plugin will do a script tag load for
+‘example.html.js’.</p>
+<p>The <a href="http://requirejs.org/docs/optimization.html">requirejs optimizer</a> will
+generate these ‘.js’ versions of the text resources if you set this in the
+build profile:</p>
+<pre><code>optimizeAllPluginResources: true
+</code></pre><p>In some cases, you may want the text plugin to not try the .js resource, maybe
+because you have configured CORS on the other server, and you know that only
+browsers that support CORS will be used. In that case you can use the
+<a href="http://requirejs.org/docs/api.html#config-moduleconfig">module config</a>
+(requires RequireJS 2+) to override some of the basic logic the plugin uses to
+determine if the .js file should be requested:</p>
+<pre><code class="lang-javascript">requirejs.config({
+    config: {
+        text: {
+            useXhr: function (url, protocol, hostname, port) {
+                //Override function for determining if XHR should be used.
+                //url: the URL being requested
+                //protocol: protocol of page text.js is running on
+                //hostname: hostname of page text.js is running on
+                //port: port of page text.js is running on
+                //Use protocol, hostname, and port to compare against the url
+                //being requested.
+                //Return true or false. true means &quot;use xhr&quot;, false means
+                //&quot;fetch the .js version of this resource&quot;.
+            }
+        }
+    }
+});
+</code></pre>
+<h3 id="custom-xhr-hooks">Custom XHR hooks</h3>
+<p>There may be cases where you might want to provide the XHR object to use
+in the request, or you may just want to add some custom headers to the
+XHR object used to make the request. You can use the following hooks:</p>
+<pre><code class="lang-javascript">requirejs.config({
+    config: {
+        text: {
+            onXhr: function (xhr, url) {
+                //Called after the XHR has been created and after the
+                //xhr.open() call, but before the xhr.send() call.
+                //Useful time to set headers.
+                //xhr: the xhr object
+                //url: the url that is being used with the xhr object.
+            },
+            createXhr: function () {
+                //Overrides the creation of the XHR object. Return an XHR
+                //object from this function.
+                //Available in text.js 2.0.1 or later.
+            },
+            onXhrComplete: function (xhr, url) {
+                //Called whenever an XHR has completed its work. Useful
+                //if browser-specific xhr cleanup needs to be done.
+            }
+        }
+    }
+});
+</code></pre>
+<h3 id="forcing-the-environment-implemention">Forcing the environment implemention</h3>
+<p>The text plugin tries to detect what environment it is available for loading
+text resources, Node, XMLHttpRequest (XHR) or Rhino, but sometimes the
+Node or Rhino environment may have loaded a library that introduces an XHR
+implementation. You can force the environment implementation to use by passing
+an “env” module config to the plugin:</p>
+<pre><code class="lang-javascript">requirejs.config({
+    config: {
+        text: {
+            //Valid values are &#39;node&#39;, &#39;xhr&#39;, or &#39;rhino&#39;
+            env: &#39;rhino&#39;
+        }
+    }
+});
+</code></pre>
+<h2 id="license">License</h2>
+<p>Dual-licensed – new BSD or MIT.</p>
+<h2 id="where-are-the-tests-">Where are the tests?</h2>
+<p>They are in the <a href="https://github.com/jrburke/requirejs">requirejs</a> and
+<a href="https://github.com/jrburke/r.js">r.js</a> repos.</p>
+<h2 id="history">History</h2>
+<p>This plugin was in the <a href="https://github.com/jrburke/requirejs">requirejs repo</a>
+up until the requirejs 2.0 release.</p>
