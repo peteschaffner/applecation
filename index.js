@@ -1,13 +1,14 @@
-var Metalsmith  = require('metalsmith');
-var express     = require('metalsmith-express');
-var Handlebars  = require('handlebars');
-var layouts     = require('metalsmith-layouts');
-var templates   = require('metalsmith-in-place');
-var markdown    = require('metalsmith-markdown');
-var metadata    = require('metalsmith-metadata');
-var permalinks  = require('metalsmith-permalinks');
-var rootpath    = require('metalsmith-rootpath');
-var watch       = require('metalsmith-watch');
+var Metalsmith   = require('metalsmith');
+var express      = require('metalsmith-express');
+var fileMetadata = require('metalsmith-filemetadata');
+var Handlebars   = require('handlebars');
+var layouts      = require('metalsmith-layouts');
+var templates    = require('metalsmith-in-place');
+var markdown     = require('metalsmith-markdown');
+var metadata     = require('metalsmith-metadata');
+var permalinks   = require('metalsmith-permalinks');
+var rootpath     = require('metalsmith-rootpath');
+var watch        = require('metalsmith-watch');
 
 Handlebars.registerHelper('includes', function(a, b, opts) {
     if(a.includes(b))
@@ -21,6 +22,12 @@ var metalsmith = Metalsmith(__dirname)
     references: 'references.json',
     work: 'work.json'
   }))
+  .use(fileMetadata([
+      {
+	  	pattern: 'resume/reference/stronger-nation-2013/**/*',
+	  	metadata: {'permalink': false}
+	  }
+  ]))
   .use(markdown({ smartypants: true }))
   .use(permalinks({ relative: false }))
   .use(rootpath())
