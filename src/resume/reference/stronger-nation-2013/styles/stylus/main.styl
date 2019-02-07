@@ -1,0 +1,998 @@
+@import "nib"
+@import "helpers"
+@import "colors"
+@import "normalize"
+
+/**
+ *
+ * Typography
+ *
+ */
+
+$fontSize = 16px
+$baseline = 12px
+
+fontSize(n)
+  $fontSize * n
+
+lineHeight(n)
+  $baseline * n
+
+body
+  font-family: Baskerville, "Times New Roman", Times, serif
+  font-size: $fontSize
+  line-height: lineHeight(2)
+  color: $grey
+
+.sans, .source, .data-vis, .table, .chooser, footer, .targets, .pullquote, h1, h2, h3, h4, h5, h6
+  font-family: "freight-sans-pro", sans-serif
+
+.digit
+  font-family: sans-serif
+
+h1, h2, h3, h4, h5, h6, header .sans, .subhead
+  font-weight: 300
+
+h3, h4, h5, h6, ul, ol, p
+  margin: 0 0 lineHeight(2)
+
+h2
+  font-size: 40px
+  margin: 0
+
+h3
+  font-size: 24px
+
+h4
+  text-transform: uppercase
+  margin-top: lineHeight(2)
+
+a
+  color: $red
+  text-decoration: none
+
+  &:hover
+    border-bottom: 1px solid lighten($red, 80%)
+
+/**
+ *
+ * Layout
+ *
+ */
+
+.preload
+  #main-nav, #main-nav ul, #toc, #map, #top
+    transition: none !important
+
+#main
+  opacity: 0
+  transition: opacity 0.4s ease
+
+.wrap
+  width: 600px
+  margin: 0 auto
+
+.data-vis, .wrap
+  position: relative
+
+section, footer, .static
+  padding: lineHeight(4) 0 lineHeight(2)
+  margin-bottom: lineHeight(2)
+
+hr
+  height: 2px
+  border: none
+  background: lighten($grey, 90%)
+  color: lighten($grey, 50%)
+
+
+/**
+ *
+ * Header
+ *
+ */
+
+#header
+  background: $cream
+  margin-bottom: lineHeight(19)
+  padding: lineHeight(8) 0 0
+
+// Title
+h1, .subhead
+  margin: 0
+  text-align: center
+
+h1
+  text-transform: uppercase
+  color: lighten($grey, 20%)
+  font-size: $fontSize
+  letter-spacing: 2px
+
+h1 i, .subhead
+  text-transform: lowercase
+
+.subhead
+  line-height: $baseline
+  color: lighten($grey, 70%)
+  font-size: 14px
+
+// Nav
+#main-nav
+  height: lineHeight(24)
+  transition: height 0.4s ease
+
+  a
+    border: none
+
+    &.active
+      color: $red
+
+  ul
+    height: lineHeight(30)
+    max-width: 350px
+    margin: 0 auto
+    padding: lineHeight(2)
+    background: white
+    line-height: lineHeight(3)
+    opacity: 0
+    transition: opacity 0.4s ease
+
+    a
+      display: inline-block
+      padding-right: 12px
+      color: lighten($grey, 20%)
+      background: white
+
+      &:hover
+        color: $grey
+
+  li
+    position: relative
+    z-index: 1
+
+    &:before, &:after
+      content: ""
+      display: inline-block
+      position: absolute
+      width: 4px
+      height: 4px
+      left: -12px
+      top: 50%
+      margin-top: -2px
+      border-radius: 4px
+      background: lighten($grey, 95%)
+
+    &:after
+      width: 100%
+      left: 0
+      border-radius: 0
+      z-index: -1
+
+    &:hover:before, &:hover:after
+      background: lighten($grey, 80%)
+
+  &.open
+    height: lineHeight(43)
+
+    ul
+      opacity: 1
+
+    #toc
+      background-position: center bottom
+      background-position: -50px -82px
+
+    #map
+      top: lineHeight(37)
+
+#toc
+  display: block
+  position: relative
+  width: 23px
+  height: 24px
+  margin: lineHeight(4) auto lineHeight(2) auto
+  image: "../images/sprite.png" 183px 158px
+  background-position: -50px -60px
+  background-repeat: no-repeat
+  text-indent: -999em
+  overflow: hidden
+  z-index: 1
+  transition: background-position 0.4s ease
+
+  &:hover
+    opacity: 0.8
+
+// Map
+#map
+  opacity: 0
+  position: absolute
+  top: lineHeight(15)
+  width: 100%
+  height: lineHeight(41)
+  overflow-x: hidden
+  z-index: 0
+  transition: all 0.4s ease
+
+  svg
+    display: block
+    width: 960px
+    position: relative
+    left: 50%
+    margin-left: -480px
+
+.state-lines
+  fill: none
+  stroke: white
+  stroke-linejoin: round
+
+.states path
+  fill: rgba(0,0,0,0)
+  stroke: rgba(0,0,0,0)
+  cursor: pointer
+
+  &:hover
+    fill: $red
+
+  &.selected:hover
+    fill: rgba(0,0,0,0)
+
+.metros
+  path
+    visibility: hidden
+
+  &.active path
+    stroke: #fff
+    fill: $blue
+    opacity: 0.7
+    visibility: visible
+
+// grey county shades
+.grey
+  for num in 0..8
+    .q{num}-9
+      $shade = 7.5 * num
+      fill: darken(lighten($grey, 95%), unit($shade, "%"))
+
+// green county shades
+for color, i in #E1FAF1 #C5F0E0 #82E0BD #4CC799 #42AE86 #0C9461 #167A55 #1B6147 #00472D
+  .q{i}-9, .metros.active .q{i}-9, .selected.q{i}-9
+    fill: color
+
+
+/**
+ *
+ * Toolbar
+ *
+ */
+
+#toolbar
+  margin-bottom: lineHeight(2)
+  line-height: lineHeight(5)
+
+  .wrap
+    clearfix()
+
+  h2
+    clear: both
+
+.chooser
+  display: block
+  margin-bottom: lineHeight(4) - 2
+  background: lighten($grey, 98%)
+  color: lighten($grey, 50%)
+  font-style: italic
+  text-align: center
+  border: 1px dashed lighten($grey, 90%)
+
+#chooser
+  margin-left: 10px
+
+#downloads, #downloads li, #main h2
+  float: left
+
+#downloads
+  margin: 0 0 0 30px
+  padding: 0
+  list-style: none
+
+  li
+    margin-right: 15px
+    text-indent: -999em
+    overflow: hidden
+
+    &:last-child
+      margin: 0
+
+.pdf, .ebook
+  display: block
+  width: 13px
+  height: 100%
+  image: "../images/sprite.png" 183px 158px
+  background-position: -50px -115px
+  background-repeat: no-repeat
+
+.pdf:hover, .ebook:hover
+  border: none
+  opacity: 0.8
+
+.ebook
+  background-position: -63px -115px
+
+
+/**
+ *
+ * Charts
+ *
+ */
+
+.nation #path, .metro #metros
+  margin-bottom: 0
+  padding-bottom: lineHeight(4)
+
+.bar
+  box-sizing: border-box
+
+.trend .bar, #path .bar, #levels .bar
+  height: lineHeight(2)
+  padding: 0 10px
+  border-bottom: 1px solid white
+  color: #fff
+
+.trend, #path
+  .year
+    opacity: 0.4
+
+  .percent
+    float: right
+    text-align: right
+
+.digit
+  font-size: 12px
+
+.source
+  margin-top: $baseline
+  font-size: $baseline
+  line-height: $baseline
+  font-style: italic
+  color: lighten($grey, 30%)
+
+  a
+    color: lighten($grey, 10%)
+
+table
+  font-size: 14px
+
+  .digit
+    text-align: right
+    position: relative
+    top: 1px
+
+tbody tr:hover
+  background: rgba(0,0,0,0.05)
+
+td, th
+  padding: 0 7px
+
+table .color, .legend .color
+  float: left
+  width: 14px
+  height: 14px
+  margin: 5px 7px 0 0
+
+.odd
+  background: white
+
+.even
+  background: $cream
+
+.last
+  font-weight: bold
+
+
+/**
+ *
+ * Intro
+ *
+ */
+
+#intro, .static
+  padding: 0 0 lineHeight(4) 0
+
+// Trend graph
+.trend
+  margin: lineHeight(2) 0
+
+  .chart
+    width: 500px
+
+  h3
+    margin-bottom: 14px
+    color: $dark-red
+    font-size: 18px
+
+  .left
+    position: absolute
+    left: -175px
+    top: 5px
+    width: 156px
+    text-align: right
+
+  .left p
+    margin: 0
+    line-height: 17px
+    color: #6d6e71
+    font-size: 12px
+
+.state-copy
+  display: none
+
+
+/**
+ *
+ * Levels
+ *
+ */
+
+#levels
+  clearfix()
+  background: $cream
+
+  h3
+    text-align: right
+
+  .chart
+    position: absolute
+    left: -144px
+    top: lineHeight(-2)
+    width: 288px
+    height: 288px
+
+  .table, .source
+    float: right
+
+  .callout
+    font-weight: bold
+    color: $green
+
+    path
+      stroke: $cream
+      stroke-width: 4px
+
+  .total
+    font-weight: bold
+
+  .sans
+    text-transform: uppercase
+    font-weight: 300
+
+  .table
+    width: 437px
+
+  .color
+    border-radius: 15px
+
+.lt-ie9 #levels
+  .color
+    display: none
+
+  .chart
+    left: -107px
+    width: 270px
+    height: 168px
+    margin-top: 72px
+
+    .bar
+      float: right
+      clear: both
+      padding: 0
+      border-color: $cream
+
+
+/**
+ *
+ * Ethnicity
+ *
+ */
+
+#ethnicity
+  h3
+    width: 478px
+
+  .chart
+    float: right
+    height: lineHeight(9)
+
+    .digit
+      position: absolute
+      top: lineHeight(-2)
+      width: 100%
+      text-align: center
+      opacity: 0.4
+
+  .bar
+    position: relative
+    display: inline-block
+    width: 77px
+    border-left: 1px solid white
+
+  .source
+    margin-top: 0
+    text-align: right
+
+
+/**
+ *
+ * Path
+ *
+ */
+
+#path
+  background: $cream
+
+  .chart
+    position: relative
+    width: 700px
+    height: lineHeight(34)
+    left: 50%
+    margin-left: -350px
+
+.axis
+  path, line
+    fill: none
+
+  line
+    stroke: #000
+    shape-rendering: crispEdges
+    opacity: 0.07
+
+  text
+    fill: black
+    opacity: 0.1
+
+.target
+  .area
+    fill: lighten($red, 50%)
+
+  .dot circle
+    fill: $red
+
+.expected
+  .area, .dot circle
+    fill: $green
+
+.dot
+  circle
+    stroke: $cream
+    stroke-width: 3
+
+.label
+  fill: $grey
+
+.legend
+  position: absolute
+  left: 24px
+  top: 78px
+  width: 272px
+  padding: 24px 0 0
+  background: $cream
+  list-style: none
+  font-size: $baseline
+  line-height: 17px
+  color: rgba(0,0,0,0.5)
+  z-index: 1
+
+  li
+    margin-bottom: $baseline
+
+  .color
+    background: transparent
+    width: 0
+    height: 0
+    border-left: solid 24px transparent
+
+    &.red
+      border-bottom: solid 24px $red
+
+    &.green
+      border-bottom: solid 24px $green
+
+.lt-ie9 #path
+  .chart
+    position: relative
+    height: lineHeight(16)
+
+  .target, .expected
+    width: 100%
+
+  .bar
+    border-right: 1px solid white
+
+  .target
+    .bar
+      background $red
+
+    .percent
+      position: relative
+      right: -55px
+      color: $grey
+
+  .expected
+    position: absolute
+    top: 0
+    .bar
+      background $green
+
+  .legend
+    position: static
+    width: 100%
+    padding: 0
+    line-height: lineHeight(1)
+
+  .color
+    border-width: 0
+    height: 14px
+    width: 14px
+    margin-top: -1px
+
+  .red
+    background: $red
+
+  .green
+    background: $green
+
+
+/**
+ *
+ * Counties
+ *
+ */
+
+#counties
+  .table
+    width: 100%
+
+    div
+      position: relative
+      box-sizing: border-box
+      height: lineHeight(2)
+      padding: 0 7px
+      border-bottom: 1px solid rgba(0,0,0,0.04)
+
+  tr:last-child div
+    border: none
+
+  td
+    padding: 0
+
+  .percent
+    float: right
+    margin-left: 7px
+    text-align: right
+
+  .bar
+    display: block
+    position: absolute
+    left: 0
+    top: -1px
+    height: 25px
+    background: lighten($red, 70%)
+    z-index: -1
+
+
+/**
+ *
+ * Metros
+ *
+ */
+
+#metros
+ background: $cream
+
+ .table
+   width: 100%
+
+  th
+    cursor: s-resize
+
+    &:hover, &.selected
+      color: $red
+
+
+  th:first-child
+    text-align: left
+
+  th:nth-child(3), th:last-child
+    text-align: right
+
+  .sort
+    text-align: right
+
+.hint
+  font-style: italic
+  font-size: 14px
+  text-align: right
+  opacity: 0.5
+
+
+/**
+ *
+ * Footer
+ *
+ */
+
+footer
+  margin-bottom: 0
+  background: $grey
+  font-size: 14px
+  color: lighten($grey, 70%)
+
+  .wrap
+    clearfix()
+
+#pub-date, #legal
+  color: lighten($grey, 20%)
+
+#legal
+  float: left
+  line-height: lineHeight(4)
+
+#legal, #logos
+  margin-top: lineHeight(2)
+
+#logos
+  float: right
+  padding: 0
+  list-style: none
+  text-align: center
+
+  li, a
+    display: inline-block
+
+  a
+    height: 48px
+    image: "../images/sprite.png" 183px 158px
+    background-position: left -14px
+    background-repeat: no-repeat
+    text-indent: -999em
+    overflow: hidden
+
+    &:hover
+      border: none
+      opacity: 0.8
+
+  .lumina-logo
+    width: 137px
+    margin-right: lineHeight(2)
+
+  .goal-logo
+    width: 46px
+    background-position: -137px -14px
+
+
+/**
+ *
+ * To top
+ *
+ */
+
+#top
+  display: none
+  position: fixed
+  left: lineHeight(2)
+  top: lineHeight(2)
+  width: 50px
+  height: 50px
+  image: "../images/sprite.png" 183px 158px
+  background-repeat: no-repeat
+  background-position: left -59px
+  background-color: rgba(255,255,255,0.7)
+  border-radius: 50px
+  text-indent: -999em
+  overflow: hidden
+  transition: background 0.4s ease
+
+  &:hover
+    border: none
+    background-color: rgba(73,67,66,0.2)
+    background-position: left -109px
+
+
+/**
+ *
+ * Download dialog
+ *
+ */
+
+.dialog
+  display: none
+
+  .overlay
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background: rgba(255,255,255,0.7)
+    z-index: 2
+
+  .body
+    position: fixed
+    top: 25%
+    left: 50%
+    width: 252px
+    padding: lineHeight(2) lineHeight(2) 0 lineHeight(2)
+    margin: 0 0 0 -150px
+    background: $cream
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.2)
+    text-align: center
+    z-index: 3000000000
+
+  .close
+    position: absolute
+    display: block
+    right: 10px
+    top: 10px
+    width: 23px
+    height: 22px
+    image: "../images/sprite.png" 183px 158px
+    background-position: -50px -83px
+    background-repeat: no-repeat
+    text-indent: -999em
+    overflow: hidden
+    opacity: 0.3
+
+    &:hover
+      border: none
+      opacity: 0.5
+
+  .downloads
+    // display: none
+
+  .homescreen
+    display: none
+    p
+      text-align: left
+      color: lighten($grey, 40%)
+
+  ul
+    list-style: none
+    padding: 0
+    line-height: 2em
+
+
+/**
+ *
+ * Spinner
+ *
+ */
+
+.spinner
+  position: fixed !important
+  top: 192px !important
+
+
+/**
+ *
+ * Static
+ *
+ */
+
+.static
+  .right
+    float: right
+    margin: 12px 0 24px 24px
+    padding: 2px
+    border: 2px solid lighten($grey, 90%)
+
+  .table
+    width: 70%
+
+#main .static h2
+  float: none
+  margin-bottom: 24px
+  line-height: 48px
+
+.footnote
+  @extend .sans
+  padding: 10px 0 0
+  list-style: none
+  color: lighten($grey, 50%)
+  border-top: 2px solid lighten($grey, 90%)
+  font-style: italic
+
+  li
+    margin-bottom: $baseline
+
+.pullquote
+  position: relative
+  width: 30%
+  float: right
+  margin-left: lineHeight(2)
+
+  &:before
+    content: "“"
+    position: absolute
+    left: lineHeight(1)
+    top: lineHeight(2.5)
+    font-size: fontSize(6)
+    color: $green
+    opacity: 0.1
+
+.sidebar, .pullquote
+  padding: lineHeight(2)
+  background: lighten($green, 80%)
+  color: darken($green, 70%)
+
+.sidebar
+  margin-bottom: lineHeight(2)
+
+.targets
+  ul
+    list-style: none
+    margin: 0
+    padding: 0
+    clearfix()
+
+  h3, h4
+    color: $red
+
+  h4
+    text-transform: lowercase
+    font-size: fontSize(3)
+    line-height: lineHeight(3)
+    font-weight: 700
+
+  .meta
+    color: #789188
+  
+  .source
+    color: #789188
+
+.target
+  float: left
+  width: 245px
+  height: lineHeight(28)
+  margin-right: 60px
+
+  &:nth-child(even)
+    margin: 0
+    
+
+.explanation
+  width: 90%
+
+.figure
+  margin-bottom: lineHeight(1)
+
+/**
+ *
+ * Template download page
+ *
+ */
+
+.download-template
+  display: block
+  position: relative
+  left: -154px
+  margin-bottom: lineHeight(4)
+
+  &:hover
+    border: none
+
+
+/**
+ *
+ * Media queries
+ *
+ */
+
+@media only screen and (max-width: 959px)
+  @import "tablet"
+
+@media only screen and (max-width: 500px)
+  @import "phone"
+
+
+// TODO: remove
+.proofread
+  background: yellow
+  color: black
