@@ -52,9 +52,9 @@ title: Résumé
 - Created a digital design department
 - Defined our workflow and standard for web-based projects
 - Designed and developed an iOS application for Lumina Foundation
-- [Designed](http://strongernation.luminafoundation.org/report/2016/) and [developed](https://github.com/irong8/sn2013) Lumina Foundation's annual report in digital and print forms
+- [Designed](reference/stronger-nation-2013) and [developed](https://github.com/irong8/sn2013) Lumina Foundation's annual report in digital and print forms
 - Designed and developed [an online publication](http://focus.luminafoundation.org/focus-archive/) for Lumina Foundation
-- Designed and prototyped an interactive tourism map for Wayne County, IN
+- Designed and prototyped [an interactive tourism map](reference/sustainable-community) for Wayne County, IN
 - Led corporate, commerce and marketing web projects
 - Managed client/project manager expectations throughout the life of projects
 - Acted as liaison between clients, art directors and back-end developers
